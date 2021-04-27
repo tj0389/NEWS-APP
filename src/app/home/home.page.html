@@ -1,0 +1,34 @@
+<ion-header > 
+  <ion-title class="ion-text-center" color="primary" size="large"><h1>News</h1></ion-title>
+</ion-header>
+<ion-content>
+<ion-refresher  slot="fixed" (ionRefresh)="doRefresh($event)">
+  
+  <ion-refresher-content color="primary"
+    pullingIcon="chevron-down-circle-outline"
+    pullingText="Pull to refresh"
+    refreshingSpinner="circles"
+    refreshingText="Refreshing...">
+  </ion-refresher-content>
+</ion-refresher>
+
+  <ion-card *ngFor="let tmp of data1">
+    <ion-img src="{{tmp.image}}"></ion-img>
+    <ion-card-header>
+        <a style="text-decoration: none;"href="{{tmp.link}}"><ion-card-title style="white-space: normal; ">{{tmp.title}}</ion-card-title>
+        </a>
+      <ion-card-subtitle style="white-space: normal;">By {{tmp.author}} / at {{tmp.time}} on {{tmp.date}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      {{tmp.content}}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  
+</ion-content>
