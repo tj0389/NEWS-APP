@@ -15,13 +15,15 @@
   <ion-card *ngFor="let tmp of data1">
     <ion-img src="{{tmp.image}}"></ion-img>
     <ion-card-header>
-        <a style="text-decoration: none;"href="{{tmp.link}}"><ion-card-title style="white-space: normal; ">{{tmp.title}}</ion-card-title>
-        </a>
+        <ion-card-title style="white-space: normal; ">{{tmp.title}}</ion-card-title>
       <ion-card-subtitle style="white-space: normal;">By {{tmp.author}} / at {{tmp.time}} on {{tmp.date}}</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
       {{tmp.content}}
     </ion-card-content>
+    <ion-card-header>
+      <ion-card-subtitle><a (click)="runbrowser(tmp.link)">Click to see full story </a> </ion-card-subtitle>
+    </ion-card-header>
   </ion-card>
 
   <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
+import { ThemeableBrowser, ThemeableBrowserOptions, ThemeableBrowserObject } from '@ionic-native/themeable-browser/ngx';
 
 @Component({
   selector: 'app-home',
@@ -14,10 +15,11 @@ export class HomePage {
   news_offset="None";
   items: any;
   loading:any;
+  default_image="C:\Users\Tanmay Jain\Documents\news-app\src\app\home\vista-wei-lvR06Zj8P18-unsplash.jpg";
 
-  constructor(public loadingCtrl: LoadingController,private http:HttpClient) {
+  constructor(public alertCtrl: AlertController,public loadingCtrl: LoadingController,private http:HttpClient,private themeableBrowser: ThemeableBrowser) {
     if (this.data1==null )
-    this.load();
+      this.load();
   }
 
   doRefresh(event) {
@@ -44,35 +46,42 @@ export class HomePage {
   }
 
  async load(){
-   const url="https://newsapi389.herokuapp.com/";
+   let url="https://newsapi389.herokuapp.com/";
     this.showLoader();
     this.http.get(url).subscribe((res)=>{
       // console.log(res);
+      try{
       this.loading.dismiss();
       this.data=res;
       this.news_offset=this.data.pop();
       this.news_offset=this.news_offset['id'];
-      // console.log(this.news_offset);
       this.data1=this.data;
-      // console.log(this.data)
+      }
+      catch(error)
+      {
+        this.loading.dismiss();
+        this.presentAlert("Something went wrong. Please referesh the Page")
+      }
     });
   }
 
   loadmore(){
-    const url="https://newsapi389.herokuapp.com/"+this.news_offset;
+    let url="https://newsapi389.herokuapp.com/"+this.news_offset;
     this.http.get(url).subscribe((res)=>{
-      this.data=res;
-      this.news_offset=this.data.pop();
-      this.news_offset=this.news_offset['id'];
-      // console.log(this.news_offset);
-      this.data1=this.data1.concat(this.data);
-      // console.log(this.data)
+      try{
+        this.data=res;
+        this.news_offset=this.data.pop();
+        this.news_offset=this.news_offset['id'];
+        this.data1=this.data1.concat(this.data);
+      }
+      catch(error)
+      {
+        this.loading.dismiss();
+        this.presentAlert("Something went wrong. Please referesh the Page")
+      }
     });
   }
-    // console.log(this.news_offset[0]);
-    // const ngFor=let tmp of data
-    // // if (this.data1.length)
-    // let arr=Array(this.data1[0])
+   
   async showLoader(){
       this.loading = await this.loadingCtrl.create({
         message:"Loading"
@@ -80,4 +89,80 @@ export class HomePage {
       });
       await this.loading.present();
     }
+
+  runbrowser(link:any){
+    // console.log(link);
+
+    const options: ThemeableBrowserOptions = {
+      statusbar: {
+          color: '#ffffffff'
+      },
+      toolbar: {
+          height: 44,
+          color: '#f0f0f0ff'
+      },
+      title: {
+          color: '#003264ff',
+          showPageTitle: true
+      },
+      backButton: {
+          image: 'back',
+          imagePressed: 'back_pressed',
+          align: 'left',
+          event: 'backPressed'
+      },
+      forwardButton: {
+          image: 'forward',
+          imagePressed: 'forward_pressed',
+          align: 'left',
+          event: 'forwardPressed'
+      },
+      closeButton: {
+          image: 'close',
+          imagePressed: 'close_pressed',
+          align: 'left',
+          event: 'closePressed'
+      },
+      customButtons: [
+          {
+              image: 'share',
+              imagePressed: 'share_pressed',
+              align: 'right',
+              event: 'sharePressed'
+          }
+      ],
+      menu: {
+          image: 'menu',
+          imagePressed: 'menu_pressed',
+          title: 'Test',
+          cancel: 'Cancel',
+          align: 'right',
+          items: [
+              {
+                  event: 'helloPressed',
+                  label: 'Hello World!'
+              },
+              {
+                  event: 'testPressed',
+                  label: 'Test!'
+              }
+          ]
+      },
+      backButtonCanClose: true
+    }
+
+    const browser: ThemeableBrowserObject = this.themeableBrowser.create(link, '_blank', options);
+    
+  }
+
+  async presentAlert(msg:string) {
+    const alert = await this.alertCtrl.create({
+      header: 'Error',
+      message: msg,
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+
 }
