@@ -8,14 +8,6 @@ We then use/get the flask api in the ionic app and shows the daily automatic upd
 Link to the apk of app-
 https://github.com/tj0389/NEWS-APP/blob/master/News%20planet.apk
 
-<img src="https://github.com/tj0389/NEWS-APP/blob/master/Screenshot_20210515-210134_One%20UI%20Home.jpg" alt="" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="200" height="400" />
-
-<img src="https://github.com/tj0389/NEWS-APP/blob/master/Screenshot_20210515-210139_News%20Planet.jpg" alt="" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="200" height="400" />
-
-<img src="https://github.com/tj0389/NEWS-APP/blob/master/Screenshot_20210515-210145_News%20Planet.jpg" alt="" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="200" height="400" />
-
-<img src="https://github.com/tj0389/NEWS-APP/blob/master/Screenshot_20210515-210153_News%20Planet.jpg" alt="" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="200" height="400" />
-
-<img src="https://github.com/tj0389/NEWS-APP/blob/master/Screenshot_20210515-210200_News%20Planet.jpg" alt="" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="200" height="400" />
+<img src="https://github.com/tj0389/NEWS-APP/blob/master/Screenshot_20210515-210134_One%20UI%20Home.jpg" alt="" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="200" height="400" /> <img src="https://github.com/tj0389/NEWS-APP/blob/master/Screenshot_20210515-210139_News%20Planet.jpg" alt="" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="200" height="400" /> <img src="https://github.com/tj0389/NEWS-APP/blob/master/Screenshot_20210515-210145_News%20Planet.jpg" alt="" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="200" height="400" /> <img src="https://github.com/tj0389/NEWS-APP/blob/master/Screenshot_20210515-210153_News%20Planet.jpg" alt="" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="200" height="400" /> <img src="https://github.com/tj0389/NEWS-APP/blob/master/Screenshot_20210515-210200_News%20Planet.jpg" alt="" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="200" height="400" />
 
 
