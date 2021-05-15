@@ -17,6 +17,10 @@ const routes: Routes = [
       preload: true
     }
   },
+  {
+    path: 'showimage',
+    loadChildren: () => import('./showimage/showimage.module').then( m => m.ShowimagePageModule)
+  },
 ];
 
 @NgModule({
