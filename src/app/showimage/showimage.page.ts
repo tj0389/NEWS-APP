@@ -9,6 +9,14 @@ import { ModalController, NavParams } from '@ionic/angular';
 })
 export class ShowimagePage implements OnInit {
 
+  slideropts={
+    allowSlidePrev: false,
+    allowSlideNext: false,
+    zoom: {
+      maxRatio: 5
+    }
+  }
+
   imagelink:any;
   constructor(public domSanitizer: DomSanitizer,public navParams: NavParams,public modalCtrl: ModalController,) { 
     this.imagelink=this.navParams.get('link');

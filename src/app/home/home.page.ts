@@ -40,7 +40,7 @@ export class HomePage {
     this.loadmore();
     setTimeout(() => {
       event.target.complete();
-    }, 500);
+    }, 2000);
   }
 
  async load(){
